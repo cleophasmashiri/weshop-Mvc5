@@ -17,6 +17,8 @@ namespace Weshop.Models
 
         public string Address { get; set; }
 
+        public int ShoppingCartID  { get; set; }
+
         public virtual ICollection<Purchase> Purchases { get; set; }
     }
 }

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Weshop.Models.Product>
+
+@{
+    ViewBag.Title = "Product Listing";
+}
+
+@if (!Context.Request.IsAuthenticated)
+{
+    <div class="jumbotron">
+        <h2>Experience Shopping like no other</h2>
+        <p></p>
+        <p>
+            <a href="@Url.Action("login", "Account")" class="btn btn-primary btn-lg">Sign up</a>
+        </p>
+    </div>
+}
+
+<h1>Product Listing</h1>
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <a href="@Url.Action("Details", new { id = item.ProductID })">
+                    <img src="/images/products/bmw1.jpg" />
+                </a>
+
+                <div class="caption">
+                    <h4 class="pull-right">
+                        @Html.DisplayFor(modelItem => item.Title) | @Html.DisplayFor(modelItem => item.Price)
+                    </h4>
+                    <h4 class="pull-right"></h4>
+                    @Ajax.ActionLink("Add to Cart", "Create", "ShoppingCarts", new {ProductID = item.ProductID}, new AjaxOptions {HttpMethod = "POST"})
+                    <a href="@Url.Action("details", "ShoppingCarts", new { id = item.ProductID })" class="btn btn-primary btn-default">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
