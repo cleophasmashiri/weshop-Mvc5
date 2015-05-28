@@ -31,9 +31,8 @@
                     <h4 class="pull-right">
                         @Html.DisplayFor(modelItem => item.Title) | @Html.DisplayFor(modelItem => item.Price)
                     </h4>
-                    <h4 class="pull-right"></h4>
-                    @Ajax.ActionLink("Add to Cart", "Create", "ShoppingCarts", new {ProductID = item.ProductID}, new AjaxOptions {HttpMethod = "POST"})
-                    <a href="@Url.Action("details", "ShoppingCarts", new { id = item.ProductID })" class="btn btn-primary btn-default">Add to Cart</a>
+                    <h4 class="pull-right"></h4>                   
+                    <a id="checkoutButton" href="#" class="btn btn-primary btn-default" data: "{target: 'Add to', addUrl: @Url.Action("details", "ShoppingCarts", new { id = item.ProductID })}">Add to Cart</a>
                 </div>
             </div>
         </div>

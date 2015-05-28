@@ -23,7 +23,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Products")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Shopping Cart", "Index", "ShoppingCarts")</li>
+                    <li>@Html.ActionLink("Shopping Cart", "Index", "ShoppingCarts")<span class="cart-count">0</span></li>
                     <li>@Html.ActionLink("Products", "IndexCms", "Products")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
