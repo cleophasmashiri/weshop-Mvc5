@@ -32,7 +32,7 @@
                         @Html.DisplayFor(modelItem => item.Title) | @Html.DisplayFor(modelItem => item.Price)
                     </h4>
                     <h4 class="pull-right"></h4>                   
-                    <a id="checkoutButton" href="#" class="btn btn-primary btn-default" data: "{target: 'Add to', addUrl: @Url.Action("details", "ShoppingCarts", new { id = item.ProductID })}">Add to Cart</a>
+                    <a id="checkoutButton" href="" class="btn btn-primary btn-default" data-target="Add to" data-addurl="@Url.Action("details", "ShoppingCarts", new { id = item.ProductID })"><span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a>
                 </div>
             </div>
         </div>

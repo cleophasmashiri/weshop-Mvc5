@@ -1,18 +1,16 @@
 ﻿$(window).load(function () {
     
-    return $('#checkoutButton').click(function (e) {
+    return $('a[data-target]').click(function (e) {
         console.log('click');
         var $this, url;
         e.preventDefault();
-
-        $this = $(this).closest('a');
-        url = this.data('targetUrl');
+        $this = $(this);
+        url = $this.data('addurl');
         return $.ajax({
             url: url,
             type: 'put',
             success: function (data) {
-                $('.cart-count').html(data);
-                return $this.closest('.cart-product').slideUp();
+                return $('.cart-count').html(data);
             }
         });
     });
