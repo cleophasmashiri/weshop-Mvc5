@@ -37,6 +37,8 @@ namespace Weshop.Controllers
         }
 
         // GET: ShoppingCarts/Create
+
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -45,13 +47,15 @@ namespace Weshop.Controllers
         // POST: ShoppingCarts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductID")] int productID)
+
+        
+        [HttpDelete()]
+       // [ValidateAntiForgeryToken]
+        public ActionResult Create(int ProductID)
         {
             if (ModelState.IsValid)
             {
-                ShoppingCart.Products.Add(new Product {ProductID = productID });
+                ShoppingCart.Products.Add(new Product {ProductID = ProductID });
             
                 return RedirectToAction("Index");
             }
